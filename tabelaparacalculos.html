@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tabela com Cálculo Automático</title>
+	<style>
+    body {
+  background-color: #f4f4f4;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 800px;
+  background-color: #ffffff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: #008cba;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+td input[type="text"],
+td input[type="number"] {
+  padding: 8px;
+  border: none;
+  text-align: center;
+  width: 100%;
+  background-color: #f4f4f4;
+  font-size: 16px;
+}
+
+td input[type="text"] {
+  text-transform: capitalize;
+}
+
+td input[type="number"]::-webkit-inner-spin-button,
+td input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+td input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#total {
+  font-size: 20px;
+  font-weight: bold;
+  color: #008cba;
+}
+
+    </style>
+    
+
+	
+</head>
+<body>
+	<table id="minhaTabela">
+		<thead>
+			<tr>
+				<th>Conta</th>
+				<th>Valor</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="text" name="conta1" /></td>
+				<td><input type="number" name="valor1" onkeyup="calcularTotal()" /></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="conta2" /></td>
+				<td><input type="number" name="valor2" onkeyup="calcularTotal()" /></td>
+			</tr>
+            <td><input type="text" name="conta2" /></td>
+            <td><input type="number" name="valor2" onkeyup="calcularTotal()" /></td>
+        </tr>
+        <td><input type="text" name="conta2" /></td>
+        <td><input type="number" name="valor2" onkeyup="calcularTotal()" /></td>
+    </tr>
+    <td><input type="text" name="conta2" /></td>
+    <td><input type="number" name="valor2" onkeyup="calcularTotal()" /></td>
+    
+    
+</tr>
+<td><input type="text" name="conta2" /></td>
+<td><input type="number" name="valor2" onkeyup="calcularTotal()" /></td>
+</tr>
+<td><input type="text" name="conta2" /></td>
+<td><input type="number" name="valor2" onkeyup="calcularTotal()" /></td>
+</tr>
+<td><input type="text" name="conta2" /></td>
+<td><input type="number" name="valor2" onkeyup="calcularTotal()" /></td>
+</tr>
+<td><input type="text" name="conta2" /></td>
+<td><input type="number" name="valor2" onkeyup="calcularTotal()" /></td>
+</tr>
+<td><input type="text" name="conta2" /></td>
+<td><input type="number" name="valor2" onkeyup="calcularTotal()" /></td>
+</tr>
+<td><input type="text" name="conta2" /></td>
+<td><input type="number" name="valor2" onkeyup="calcularTotal()" /></td>
+</tr>
+
+
+			<!-- continue adicionando quantas linhas você precisar -->
+			<tr>
+				<td>Total que voce vai pagar </td>
+				<td><span id="total"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	<script>
+		function calcularTotal() {
+			var tabela = document.getElementById("minhaTabela");
+			var linhas = tabela.getElementsByTagName("tr");
+			var total = 0;
+			for (var i = 1; i < linhas.length - 1; i++) {
+				var valor = parseFloat(linhas[i].getElementsByTagName("input")[1].value);
+				if (!isNaN(valor)) {
+					total += valor;
+				}
+			}
+			document.getElementById("total").innerHTML = total;
+		}
+	</script>
+</body>
+</html>
